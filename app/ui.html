@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sonatro · Bandcamp (link-only)</title>
+    <style>
+      body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;padding:12px}
+      .item{border:1px solid #e5e7eb;border-radius:14px;padding:12px;margin:10px 0}
+      .title{font-weight:600}
+      .meta{opacity:.7;font-size:.9em}
+      .row{display:flex;gap:10px;align-items:center}
+      img{width:56px;height:56px;border-radius:8px;object-fit:cover}
+      a.btn{padding:8px 10px;border-radius:10px;border:1px solid #d1d5db;text-decoration:none}
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // The Apps SDK will inject JSON into window.__SONATRO_RESULTS__
+      // with shape: { items: [{title, artist, type, url, artwork, tags, price_text}] }
+      const data = window.__SONATRO_RESULTS__ || { items: [] };
+      const root = document.getElementById('root');
+      if (!data.items.length){
+        root.innerHTML = '<p>No results yet. Run bandcamp.search in the chat.</p>';
+      } else {
+        root.innerHTML = data.items.map(x => `
+          <div class="item">
+            <div class="row">
+              <img src="${x.artwork || ''}" onerror="this.style.display='none'"/>
+              <div>
+                <div class="title">${x.title}</div>
+                <div class="meta">${x.artist || ''} · ${x.type || ''} · ${x.price_text || ''}</div>
+              </div>
+            </div>
+            <div style="margin-top:8px">
+              <a class="btn" href="${x.url}" target="_blank" rel="noopener noreferrer">Open on Bandcamp</a>
+            </div>
+          </div>
+        `).join('');
+      }
+    </script>
+  </body>
+</html>

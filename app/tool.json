@@ -1,0 +1,72 @@
+{
+  "name": "Sonatro \u2013 Bandcamp Browser (link-only)",
+  "version": "0.0.1",
+  "description": "Search Bandcamp by query and filters. Returns deeplinks only.",
+  "tools": [
+    {
+      "name": "bandcamp.search",
+      "description": "Search Bandcamp albums/tracks by query and filters (link-only).",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "free text (artist, album, track, label)"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "genre": {
+            "type": "string"
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "any",
+              "digital",
+              "vinyl",
+              "cassette",
+              "cd"
+            ]
+          },
+          "price": {
+            "type": "string",
+            "enum": [
+              "any",
+              "free",
+              "name-your-price",
+              "under-10",
+              "under-20"
+            ]
+          },
+          "location": {
+            "type": "string",
+            "description": "city or country name for scene browsing"
+          },
+          "sort": {
+            "type": "string",
+            "enum": [
+              "best-selling",
+              "new-arrivals",
+              "top"
+            ]
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 1
+          }
+        }
+      }
+    }
+  ],
+  "_meta": {
+    "openai": {
+      "mcp_server_url": "/mcp",
+      "outputTemplate": "/app/ui.html"
+    }
+  }
+}
