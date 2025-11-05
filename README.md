@@ -1,5 +1,9 @@
 # Sonatro ChatGPT MCP Connector (MVP)
 
+# Sonatro ChatGPT MCP Connector (MVP)
+
+![Sonatro Logo](./So.png)
+
 ## Overview
 
 This repository contains the **Sonatro MCP connector**, a minimal and compliant server implementation of the [OpenAI Model Context Protocol (MCP)](https://github.com/openai/model-context-protocol).  
