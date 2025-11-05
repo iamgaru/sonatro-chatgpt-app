@@ -1,12 +1,10 @@
 {
-  "name": "sonatro-bandcamp-mvp",
-  "version": "0.0.1",
+  "name": "sonatro-chatgpt-app-server",
+  "version": "0.1.0",
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "start": "node --enable-source-maps dist/index.js",
-    "build": "tsc -p ."
+    "dev": "tsx watch src/index.ts"
   },
   "dependencies": {
     "express": "^4.19.2"
