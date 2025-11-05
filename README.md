@@ -1,6 +1,4 @@
-# Sonatro ChatGPT MCP Connector (MVP)
-
-# Sonatro ChatGPT MCP Connector (MVP)
+ Sonatro ChatGPT MCP Connector (MVP)
 
 ![Sonatro Logo](./So.png)
 
